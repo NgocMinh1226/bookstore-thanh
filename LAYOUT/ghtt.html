@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstore</title>
+    <style>
+        /* CSS để trang trí cho giỏ hàng */
+        #cart {
+            border: 1px solid #000;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bookstore</h1>
+
+    <!-- Danh sách sách -->
+    <div id="books">
+        <div class="book">
+            <h3>Book 1</h3>
+            <p>Price: $10 <button onclick="addToCart('Book 1', 10)">Add to Cart</button></p>
+        </div>
+        <div class="book">
+            <h3>Book 2</h3>
+            <p>Price: $15 <button onclick="addToCart('Book 2', 15)">Add to Cart</button></p>
+        </div>
+        <!-- Thêm sách khác ở đây -->
+    </div>
+
+    <!-- Giỏ hàng -->
+    <div id="cart">
+        <h2>Shopping Cart</h2>
+        <ul id="cart-items"></ul>
+        <p>Total: $<span id="cart-total">0</span></p>
+        <button onclick="checkout()">Checkout</button>
+    </div>
+
+    <!-- Script JavaScript -->
+    <script>
+        // Biến lưu trữ giỏ hàng
+        let cart = [];
+        let total = 0;
+
+        // Hàm thêm sách vào giỏ hàng
+        function addToCart(bookName, price) {
+            cart.push({ name: bookName, price: price });
+            total += price;
+
+            // Cập nhật giao diện giỏ hàng
+            displayCart();
+        }
+
+        // Hàm hiển thị giỏ hàng
+        function displayCart() {
+            const cartItemsElement = document.getElementById('cart-items');
+            const cartTotalElement = document.getElementById('cart-total');
+
+            // Xóa nội dung giỏ hàng cũ
+            cartItemsElement.innerHTML = '';
+
+            // Tạo danh sách các mục trong giỏ hàng
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - $${item.price}`;
+                cartItemsElement.appendChild(li);
+            });
+
+            // Hiển thị tổng tiền
+            cartTotalElement.textContent = total;
+        }
+
+        // Hàm thanh toán
+        function checkout() {
+            alert('Total amount to be paid: $' + total);
+            // Thực hiện các bước thanh toán khác ở đây
+        }
+    </script>
+</body>
+</html>

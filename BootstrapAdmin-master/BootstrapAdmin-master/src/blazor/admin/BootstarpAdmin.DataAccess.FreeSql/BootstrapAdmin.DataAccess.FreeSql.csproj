@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\BootstrapAdmin.Caching\BootstrapAdmin.Caching.csproj" />
+    <ProjectReference Include="..\BootstrapAdmin.Web.Core\BootstrapAdmin.Web.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BootstrapBlazor" Version="7.10.7" />
+    <PackageReference Include="BootstrapBlazor.DataAccess.FreeSql" Version="7.2.0" />
+    <PackageReference Include="FreeSql.Provider.Sqlite" Version="3.2.800" />
+  </ItemGroup>
+
+</Project>
